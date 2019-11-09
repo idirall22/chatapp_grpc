@@ -1,0 +1,19 @@
+syntax= "proto3";
+
+package proto;
+
+message Message{
+    string content = 2;
+    string from = 3;
+    string to = 4;
+}
+
+message User{
+    string username = 1;
+}
+
+
+service Chat{
+    rpc connect(User) returns (stream Message){}
+    rpc transfertMessages(stream Message) returns (stream Message){}
+}
