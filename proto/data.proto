@@ -12,8 +12,9 @@ message User{
     string username = 1;
 }
 
-
+message Void{}
+    
 service Chat{
     rpc connect(User) returns (stream Message){}
-    rpc transfertMessages(stream Message) returns (stream Message){}
+    rpc transfertMessages(stream Message) returns (Void){}
 }
